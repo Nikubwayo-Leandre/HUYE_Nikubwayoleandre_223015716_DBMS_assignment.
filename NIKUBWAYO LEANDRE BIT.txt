@@ -1,0 +1,316 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 51
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE RUHANDE;
+Database changed
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+--------+----------+----------+----------+-----------+----------------------------+---------------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR   | CELL      | EMAIL                      | MATUAL_STUTAS |
++------------+-----------+---------+--------+----------+----------+----------+-----------+----------------------------+---------------+
+| 2147483647 | NIYIKIZA  | ELIE    | M      | NORTH    | MUSANZE  | MUHOZA   | RUHENGERI | nyikizaelie@gmail.com      | MARRIED       |
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE   | NIBOYE    | nikubwayoleandre@gmail.com | NULL          |
+| 2147483647 | NDUGU     | BON     | F      | SOUTH    | HUYE     | NGOMA    | NGOMA     | ndugubon12@gmail.com       | NULL          |
+| 2147483647 | NUHU      | FILS    | M      | EAST     | NGOMA    | CYAZA    | TABA      | nuhu12fils@gmail.com       | SINGLE        |
+| 2147483647 | NKUNZE    | LITTER  | F      | WEST     | RUBAVU   | UMUGANDA | TYAZO     | nkunnzelitt12@gmail.com    | NULL          |
+| 2147483647 | MUKAMA    | ABAS    | F      | SOUTH    | HUYE     | TUMBA    | UMUTUZO   | mukama12ab@gmail.com       | NULL          |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | KINYINYA | NTARAMA   | yubutheo45@gmail.com       | NULL          |
+| 2147483647 | MAKENZI   | BAW     | M      | NORTH    | GAKENKE  | MATABA   | SHYOGWE   | makenzi23@gmail.com        | NULL          |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA  | KIRUHURA  | mika34tss@gmail.com        | NULL          |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOMBE  | KABEZA    | bahatiineza@gmail.com      | NULL          |
++------------+-----------+---------+--------+----------+----------+----------+-----------+----------------------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE GANDER='M';
++------------+----------+-------+--------+----------+----------+----------+-----------+-----------------------+---------------+
+| ID         | FNAME    | LNAME | GANDER | PROVINCE | DISTRICT | SECTOR   | CELL      | EMAIL                 | MATUAL_STUTAS |
++------------+----------+-------+--------+----------+----------+----------+-----------+-----------------------+---------------+
+| 2147483647 | NIYIKIZA | ELIE  | M      | NORTH    | MUSANZE  | MUHOZA   | RUHENGERI | nyikizaelie@gmail.com | MARRIED       |
+| 2147483647 | NUHU     | FILS  | M      | EAST     | NGOMA    | CYAZA    | TABA      | nuhu12fils@gmail.com  | SINGLE        |
+| 2147483647 | AYUBU    | THEO  | M      | KIGALI   | GASABO   | KINYINYA | NTARAMA   | yubutheo45@gmail.com  | NULL          |
+| 2147483647 | MAKENZI  | BAW   | M      | NORTH    | GAKENKE  | MATABA   | SHYOGWE   | makenzi23@gmail.com   | NULL          |
++------------+----------+-------+--------+----------+----------+----------+-----------+-----------------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE PROVINCE='KIGALI';
++------------+-----------+---------+--------+----------+----------+----------+----------+----------------------------+---------------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR   | CELL     | EMAIL                      | MATUAL_STUTAS |
++------------+-----------+---------+--------+----------+----------+----------+----------+----------------------------+---------------+
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE   | NIBOYE   | nikubwayoleandre@gmail.com | NULL          |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | KINYINYA | NTARAMA  | yubutheo45@gmail.com       | NULL          |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA  | KIRUHURA | mika34tss@gmail.com        | NULL          |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOMBE  | KABEZA   | bahatiineza@gmail.com      | NULL          |
++------------+-----------+---------+--------+----------+----------+----------+----------+----------------------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA ADD TEL CHAR(10);
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+--------+----------+----------+----------+-----------+----------------------------+---------------+------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR   | CELL      | EMAIL                      | MATUAL_STUTAS | TEL  |
++------------+-----------+---------+--------+----------+----------+----------+-----------+----------------------------+---------------+------+
+| 2147483647 | NIYIKIZA  | ELIE    | M      | NORTH    | MUSANZE  | MUHOZA   | RUHENGERI | nyikizaelie@gmail.com      | MARRIED       | NULL |
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE   | NIBOYE    | nikubwayoleandre@gmail.com | NULL          | NULL |
+| 2147483647 | NDUGU     | BON     | F      | SOUTH    | HUYE     | NGOMA    | NGOMA     | ndugubon12@gmail.com       | NULL          | NULL |
+| 2147483647 | NUHU      | FILS    | M      | EAST     | NGOMA    | CYAZA    | TABA      | nuhu12fils@gmail.com       | SINGLE        | NULL |
+| 2147483647 | NKUNZE    | LITTER  | F      | WEST     | RUBAVU   | UMUGANDA | TYAZO     | nkunnzelitt12@gmail.com    | NULL          | NULL |
+| 2147483647 | MUKAMA    | ABAS    | F      | SOUTH    | HUYE     | TUMBA    | UMUTUZO   | mukama12ab@gmail.com       | NULL          | NULL |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | KINYINYA | NTARAMA   | yubutheo45@gmail.com       | NULL          | NULL |
+| 2147483647 | MAKENZI   | BAW     | M      | NORTH    | GAKENKE  | MATABA   | SHYOGWE   | makenzi23@gmail.com        | NULL          | NULL |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA  | KIRUHURA  | mika34tss@gmail.com        | NULL          | NULL |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOMBE  | KABEZA    | bahatiineza@gmail.com      | NULL          | NULL |
++------------+-----------+---------+--------+----------+----------+----------+-----------+----------------------------+---------------+------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE STUDENT DROP TEL;
+ERROR 1146 (42S02): Table 'ruhande.student' doesn't exist
+mysql> ALTER TABLE NGOMA DROP TEL;
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT ID, GANDER, EMAIL FROM NGOMA;
++------------+--------+----------------------------+
+| ID         | GANDER | EMAIL                      |
++------------+--------+----------------------------+
+| 2147483647 | M      | nyikizaelie@gmail.com      |
+| 2147483647 | F      | nikubwayoleandre@gmail.com |
+| 2147483647 | F      | ndugubon12@gmail.com       |
+| 2147483647 | M      | nuhu12fils@gmail.com       |
+| 2147483647 | F      | nkunnzelitt12@gmail.com    |
+| 2147483647 | F      | mukama12ab@gmail.com       |
+| 2147483647 | M      | yubutheo45@gmail.com       |
+| 2147483647 | M      | makenzi23@gmail.com        |
+| 2147483647 | F      | mika34tss@gmail.com        |
+| 2147483647 | F      | bahatiineza@gmail.com      |
++------------+--------+----------------------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *FROM STUDENT WHERE DISTRICT='MUSANZE' AND MATUAL_STUTAS='MARRIED';
+ERROR 1146 (42S02): Table 'ruhande.student' doesn't exist
+mysql> SELECT *FROM NGOMA WHERE DISTRICT='MUSANZE' AND MATUAL_STUTAS='MARRIED';
++------------+----------+-------+--------+----------+----------+--------+-----------+-----------------------+---------------+
+| ID         | FNAME    | LNAME | GANDER | PROVINCE | DISTRICT | SECTOR | CELL      | EMAIL                 | MATUAL_STUTAS |
++------------+----------+-------+--------+----------+----------+--------+-----------+-----------------------+---------------+
+| 2147483647 | NIYIKIZA | ELIE  | M      | NORTH    | MUSANZE  | MUHOZA | RUHENGERI | nyikizaelie@gmail.com | MARRIED       |
++------------+----------+-------+--------+----------+----------+--------+-----------+-----------------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE SECTOR='TUMBA' OR PROVINCE='KIGALI';
++------------+-----------+---------+--------+----------+----------+----------+----------+----------------------------+---------------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR   | CELL     | EMAIL                      | MATUAL_STUTAS |
++------------+-----------+---------+--------+----------+----------+----------+----------+----------------------------+---------------+
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE   | NIBOYE   | nikubwayoleandre@gmail.com | NULL          |
+| 2147483647 | MUKAMA    | ABAS    | F      | SOUTH    | HUYE     | TUMBA    | UMUTUZO  | mukama12ab@gmail.com       | NULL          |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | KINYINYA | NTARAMA  | yubutheo45@gmail.com       | NULL          |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA  | KIRUHURA | mika34tss@gmail.com        | NULL          |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOMBE  | KABEZA   | bahatiineza@gmail.com      | NULL          |
++------------+-----------+---------+--------+----------+----------+----------+----------+----------------------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> DROP  DATABASE RUHANDE;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> CREATE DATABASE RUHANDE;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE RUHANDE;
+Database changed
+mysql> CREATE TABLE NGOMA(ID INT(16), FNAME CHAR(12), LNAME CHAR(15), GANDER CHAR(6), PROVINCE CHAR(15), DISTRICT CHAR(15), SECTOR CHAR(15), CELL CHAR(15), EMAIL VARCHAR(30), TEL INT(10));
+Query OK, 0 rows affected, 2 warnings (0.01 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1198980070010412', 'NIYIKIZA', 'ELIE', 'M', 'NORTH', 'MUSANZE', 'MUHOZA', 'RUHENGERI', 'nyikizaelie@gmail.com', '0780636258');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1200280046794280', 'NIKUBWAYO','JIMMY', 'F', 'KIGALI', 'KICUKIRO', 'NIBOYE', 'NIBOYE', 'nikubwayoleandre@gmail.com', '0790064011');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1200380046792360', 'NDUGU', 'BON', 'F', 'SOUTH', 'HUYE', 'NGOMA', 'NGOMA', 'ndugubon12@gmail.com', '0780078123');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1199902680010408', 'NUHU', 'FILS', 'M', 'EAST', 'NGOMA', 'CYAZA', 'TABA', 'nuhu12fils@gmail.com', '0780012304');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1199876800809043', 'CYUSA', 'FAB', 'M', 'NORTH', 'MUSANZE', 'CYUVE', 'MUHE', 'RWEBEYA', 'cyusafab23@gmail.com', 0788903579');
+    '> INSERT INTO NGOMA VALUES('1199876800809043', 'CYUSA', 'FAB', 'M', 'NORTH', 'MUSANZE', 'CYUVE', 'MUHE', 'cyusafab23@gmail.com', 0788903579');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '');
+INSERT INTO NGOMA VALUES('1199876800809043', 'CYUSA', 'FAB', 'M', 'NORTH', '' at line 1
+mysql> INSERT INTO NGOMA VALUES ('1198678009012356', 'CYUSA', 'FAB','M','NORTH', 'MUSANZE', 'CYUVE', 'MUHE', 'cyusafab23@gmail.com','0788903579');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES ('1200388904668456', 'MIKA', 'TESS', 'F', 'KIGALI', 'KICUKIRO', 'GATENGA", "KIRUHURA', 'mika34tss@gmail.com', '0785850593');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO NGOMA VALUES ('1200388904668456', 'MIKA', 'TESS', 'F', 'KIGALI', 'KICUKIRO', 'GATENGA', 'KIRUHURA', 'mika34tss@gmail.com', '0785850593');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql>  INSERT INTO NGOMA VALUES ('1199280035793467', 'BAHATI', 'JOYEUSE', 'F', 'KIGALI', 'KICUKIRO', 'KANOMΒΕ', 'KABEZA', 'bahatiineza@gmail.com', '0790643358');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql>  INSERT INTO NGOMA VALUES ('120003470012356', 'MAKENZI', 'BAW', 'M', 'NORTH', 'GAKENKE', 'MATABA', 'SHYOGWE', 'makenzi23@gmail.com', '0730080558');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL                      | TEL       |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+
+| 2147483647 | NIYIKIZA  | ELIE    | M      | NORTH    | MUSANZE  | MUHOZA  | RUHENGERI | nyikizaelie@gmail.com      | 780636258 |
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE  | NIBOYE    | nikubwayoleandre@gmail.com | 790064011 |
+| 2147483647 | NDUGU     | BON     | F      | SOUTH    | HUYE     | NGOMA   | NGOMA     | ndugubon12@gmail.com       | 780078123 |
+| 2147483647 | NUHU      | FILS    | M      | EAST     | NGOMA    | CYAZA   | TABA      | nuhu12fils@gmail.com       | 780012304 |
+| 2147483647 | CYUSA     | FAB     | M      | NORTH    | MUSANZE  | CYUVE   | MUHE      | cyusafab23@gmail.com       | 788903579 |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA | KIRUHURA  | mika34tss@gmail.com        | 785850593 |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOM?? | KABEZA    | bahatiineza@gmail.com      | 790643358 |
+| 2147483647 | MAKENZI   | BAW     | M      | NORTH    | GAKENKE  | MATABA  | SHYOGWE   | makenzi23@gmail.com        | 730080558 |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+
+8 rows in set (0.00 sec)
+
+mysql>  INSERT INTO NGOMA VALUES ('120003470012356', 'AYUBU', 'THEO', 'M', 'KIGALI', 'GASABO', 'NTARAMA', 'KIGABIRO', 'ayubu23@gmail.com', '0738080558');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES ('120003470012356', 'ANGE', 'LITTER', 'F', 'WEST', 'NGOMA', 'CYAZA', 'TABA', 'angelitter3@gmail.com', '0788080558');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL                      | TEL       |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+
+| 2147483647 | NIYIKIZA  | ELIE    | M      | NORTH    | MUSANZE  | MUHOZA  | RUHENGERI | nyikizaelie@gmail.com      | 780636258 |
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE  | NIBOYE    | nikubwayoleandre@gmail.com | 790064011 |
+| 2147483647 | NDUGU     | BON     | F      | SOUTH    | HUYE     | NGOMA   | NGOMA     | ndugubon12@gmail.com       | 780078123 |
+| 2147483647 | NUHU      | FILS    | M      | EAST     | NGOMA    | CYAZA   | TABA      | nuhu12fils@gmail.com       | 780012304 |
+| 2147483647 | CYUSA     | FAB     | M      | NORTH    | MUSANZE  | CYUVE   | MUHE      | cyusafab23@gmail.com       | 788903579 |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA | KIRUHURA  | mika34tss@gmail.com        | 785850593 |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOM?? | KABEZA    | bahatiineza@gmail.com      | 790643358 |
+| 2147483647 | MAKENZI   | BAW     | M      | NORTH    | GAKENKE  | MATABA  | SHYOGWE   | makenzi23@gmail.com        | 730080558 |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | NTARAMA | KIGABIRO  | ayubu23@gmail.com          | 738080558 |
+| 2147483647 | ANGE      | LITTER  | F      | WEST     | NGOMA    | CYAZA   | TABA      | angelitter3@gmail.com      | 788080558 |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE GANDER='M';
++------------+----------+-------+--------+----------+----------+---------+-----------+-----------------------+-----------+
+| ID         | FNAME    | LNAME | GANDER | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL                 | TEL       |
++------------+----------+-------+--------+----------+----------+---------+-----------+-----------------------+-----------+
+| 2147483647 | NIYIKIZA | ELIE  | M      | NORTH    | MUSANZE  | MUHOZA  | RUHENGERI | nyikizaelie@gmail.com | 780636258 |
+| 2147483647 | NUHU     | FILS  | M      | EAST     | NGOMA    | CYAZA   | TABA      | nuhu12fils@gmail.com  | 780012304 |
+| 2147483647 | CYUSA    | FAB   | M      | NORTH    | MUSANZE  | CYUVE   | MUHE      | cyusafab23@gmail.com  | 788903579 |
+| 2147483647 | MAKENZI  | BAW   | M      | NORTH    | GAKENKE  | MATABA  | SHYOGWE   | makenzi23@gmail.com   | 730080558 |
+| 2147483647 | AYUBU    | THEO  | M      | KIGALI   | GASABO   | NTARAMA | KIGABIRO  | ayubu23@gmail.com     | 738080558 |
++------------+----------+-------+--------+----------+----------+---------+-----------+-----------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA ADD MATUAL_STATUS CHAR(12);
+Query OK, 10 rows affected (0.03 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+---------------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL                      | TEL       | MATUAL_STATUS |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+---------------+
+| 2147483647 | NIYIKIZA  | ELIE    | M      | NORTH    | MUSANZE  | MUHOZA  | RUHENGERI | nyikizaelie@gmail.com      | 780636258 | NULL          |
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE  | NIBOYE    | nikubwayoleandre@gmail.com | 790064011 | NULL          |
+| 2147483647 | NDUGU     | BON     | F      | SOUTH    | HUYE     | NGOMA   | NGOMA     | ndugubon12@gmail.com       | 780078123 | NULL          |
+| 2147483647 | NUHU      | FILS    | M      | EAST     | NGOMA    | CYAZA   | TABA      | nuhu12fils@gmail.com       | 780012304 | NULL          |
+| 2147483647 | CYUSA     | FAB     | M      | NORTH    | MUSANZE  | CYUVE   | MUHE      | cyusafab23@gmail.com       | 788903579 | NULL          |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA | KIRUHURA  | mika34tss@gmail.com        | 785850593 | NULL          |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOM?? | KABEZA    | bahatiineza@gmail.com      | 790643358 | NULL          |
+| 2147483647 | MAKENZI   | BAW     | M      | NORTH    | GAKENKE  | MATABA  | SHYOGWE   | makenzi23@gmail.com        | 730080558 | NULL          |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | NTARAMA | KIGABIRO  | ayubu23@gmail.com          | 738080558 | NULL          |
+| 2147483647 | ANGE      | LITTER  | F      | WEST     | NGOMA    | CYAZA   | TABA      | angelitter3@gmail.com      | 788080558 | NULL          |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET MATUAL_STATUS='MARRIED' WHERE LNAME='ELIE';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE NGOMA SET MATUAL_STATUS='SINGLE' WHERE LNAME='JIMMY';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+---------------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL                      | TEL       | MATUAL_STATUS |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+---------------+
+| 2147483647 | NIYIKIZA  | ELIE    | M      | NORTH    | MUSANZE  | MUHOZA  | RUHENGERI | nyikizaelie@gmail.com      | 780636258 | MARRIED       |
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE  | NIBOYE    | nikubwayoleandre@gmail.com | 790064011 | SINGLE        |
+| 2147483647 | NDUGU     | BON     | F      | SOUTH    | HUYE     | NGOMA   | NGOMA     | ndugubon12@gmail.com       | 780078123 | NULL          |
+| 2147483647 | NUHU      | FILS    | M      | EAST     | NGOMA    | CYAZA   | TABA      | nuhu12fils@gmail.com       | 780012304 | NULL          |
+| 2147483647 | CYUSA     | FAB     | M      | NORTH    | MUSANZE  | CYUVE   | MUHE      | cyusafab23@gmail.com       | 788903579 | NULL          |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA | KIRUHURA  | mika34tss@gmail.com        | 785850593 | NULL          |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOM?? | KABEZA    | bahatiineza@gmail.com      | 790643358 | NULL          |
+| 2147483647 | MAKENZI   | BAW     | M      | NORTH    | GAKENKE  | MATABA  | SHYOGWE   | makenzi23@gmail.com        | 730080558 | NULL          |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | NTARAMA | KIGABIRO  | ayubu23@gmail.com          | 738080558 | NULL          |
+| 2147483647 | ANGE      | LITTER  | F      | WEST     | NGOMA    | CYAZA   | TABA      | angelitter3@gmail.com      | 788080558 | NULL          |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+-----------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA DROP TEL;
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+---------------+
+| ID         | FNAME     | LNAME   | GANDER | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL                      | MATUAL_STATUS |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+---------------+
+| 2147483647 | NIYIKIZA  | ELIE    | M      | NORTH    | MUSANZE  | MUHOZA  | RUHENGERI | nyikizaelie@gmail.com      | MARRIED       |
+| 2147483647 | NIKUBWAYO | JIMMY   | F      | KIGALI   | KICUKIRO | NIBOYE  | NIBOYE    | nikubwayoleandre@gmail.com | SINGLE        |
+| 2147483647 | NDUGU     | BON     | F      | SOUTH    | HUYE     | NGOMA   | NGOMA     | ndugubon12@gmail.com       | NULL          |
+| 2147483647 | NUHU      | FILS    | M      | EAST     | NGOMA    | CYAZA   | TABA      | nuhu12fils@gmail.com       | NULL          |
+| 2147483647 | CYUSA     | FAB     | M      | NORTH    | MUSANZE  | CYUVE   | MUHE      | cyusafab23@gmail.com       | NULL          |
+| 2147483647 | MIKA      | TESS    | F      | KIGALI   | KICUKIRO | GATENGA | KIRUHURA  | mika34tss@gmail.com        | NULL          |
+| 2147483647 | BAHATI    | JOYEUSE | F      | KIGALI   | KICUKIRO | KANOM?? | KABEZA    | bahatiineza@gmail.com      | NULL          |
+| 2147483647 | MAKENZI   | BAW     | M      | NORTH    | GAKENKE  | MATABA  | SHYOGWE   | makenzi23@gmail.com        | NULL          |
+| 2147483647 | AYUBU     | THEO    | M      | KIGALI   | GASABO   | NTARAMA | KIGABIRO  | ayubu23@gmail.com          | NULL          |
+| 2147483647 | ANGE      | LITTER  | F      | WEST     | NGOMA    | CYAZA   | TABA      | angelitter3@gmail.com      | NULL          |
++------------+-----------+---------+--------+----------+----------+---------+-----------+----------------------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT FNAME, GANDER, EMAIL FROM NGOMA;
++-----------+--------+----------------------------+
+| FNAME     | GANDER | EMAIL                      |
++-----------+--------+----------------------------+
+| NIYIKIZA  | M      | nyikizaelie@gmail.com      |
+| NIKUBWAYO | F      | nikubwayoleandre@gmail.com |
+| NDUGU     | F      | ndugubon12@gmail.com       |
+| NUHU      | M      | nuhu12fils@gmail.com       |
+| CYUSA     | M      | cyusafab23@gmail.com       |
+| MIKA      | F      | mika34tss@gmail.com        |
+| BAHATI    | F      | bahatiineza@gmail.com      |
+| MAKENZI   | M      | makenzi23@gmail.com        |
+| AYUBU     | M      | ayubu23@gmail.com          |
+| ANGE      | F      | angelitter3@gmail.com      |
++-----------+--------+----------------------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE LNAME='JIMMY' AND PROVINCE='KIGALI';
++------------+-----------+-------+--------+----------+----------+--------+--------+----------------------------+---------------+
+| ID         | FNAME     | LNAME | GANDER | PROVINCE | DISTRICT | SECTOR | CELL   | EMAIL                      | MATUAL_STATUS |
++------------+-----------+-------+--------+----------+----------+--------+--------+----------------------------+---------------+
+| 2147483647 | NIKUBWAYO | JIMMY | F      | KIGALI   | KICUKIRO | NIBOYE | NIBOYE | nikubwayoleandre@gmail.com | SINGLE        |
++------------+-----------+-------+--------+----------+----------+--------+--------+----------------------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE GANDER='M' OR DISTRICT='MUSANZE';
++------------+----------+-------+--------+----------+----------+---------+-----------+-----------------------+---------------+
+| ID         | FNAME    | LNAME | GANDER | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL                 | MATUAL_STATUS |
++------------+----------+-------+--------+----------+----------+---------+-----------+-----------------------+---------------+
+| 2147483647 | NIYIKIZA | ELIE  | M      | NORTH    | MUSANZE  | MUHOZA  | RUHENGERI | nyikizaelie@gmail.com | MARRIED       |
+| 2147483647 | NUHU     | FILS  | M      | EAST     | NGOMA    | CYAZA   | TABA      | nuhu12fils@gmail.com  | NULL          |
+| 2147483647 | CYUSA    | FAB   | M      | NORTH    | MUSANZE  | CYUVE   | MUHE      | cyusafab23@gmail.com  | NULL          |
+| 2147483647 | MAKENZI  | BAW   | M      | NORTH    | GAKENKE  | MATABA  | SHYOGWE   | makenzi23@gmail.com   | NULL          |
+| 2147483647 | AYUBU    | THEO  | M      | KIGALI   | GASABO   | NTARAMA | KIGABIRO  | ayubu23@gmail.com     | NULL          |
++------------+----------+-------+--------+----------+----------+---------+-----------+-----------------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql>
